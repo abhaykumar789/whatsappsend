@@ -1,0 +1,19 @@
+<div>
+    <h2>Upload Excel File</h2>
+    <form (submit)="uploadFile()">
+      <input type="file" (change)="onFileSelected($event)" />
+      <button type="submit" [disabled]="!file">Upload</button>
+    </form>
+    <p *ngIf="message">{{ message }}</p>
+  
+    <h2>Unique File Names</h2>
+    <button (click)="refreshFileNames()">Refresh</button>
+    <ul>
+        <li *ngFor="let fileName of uniqueFileNames">
+          {{ fileName }}
+          <button (click)="openFile(fileName)">Open</button>
+        </li>
+      </ul>
+      
+  </div>
+  

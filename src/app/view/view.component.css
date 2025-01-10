@@ -1,0 +1,58 @@
+/* Container with horizontal scrolling */
+div {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* Make the table fit within the container */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Fixed column width */
+}
+
+/* Styling for table headers and cells */
+th, td {
+    padding: 8px 12px;
+    text-align: center;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Hide columns after the 8th one */
+th:nth-child(n+9), td:nth-child(n+9) {
+    display: none; /* Hide columns after 8th */
+}
+
+/* Ensure columns that are too wide show horizontal scroll */
+td, th {
+    max-width: 150px; /* Set a max-width for columns */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Truncate overflow text */
+}
+
+/* Show a scrollbar when the content overflows the table container */
+table {
+    width: max-content; /* Make sure the table expands beyond 8 columns */
+    min-width: 100%; /* Ensure table fills the container */
+}
+
+/* Sticky header to remain on top when scrolling */
+th {
+    background-color: #f2f2f2;
+    position: sticky;
+    top: 0;
+    z-index: 1; /* Keep header on top while scrolling */
+}
+
+/* Footer styling */
+tfoot td {
+    background-color: #e9ecef;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Ensure extra columns appear when scrolled */
+th:nth-child(n+9), td:nth-child(n+9) {
+    display: table-cell;
+}
